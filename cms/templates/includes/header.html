@@ -1,0 +1,45 @@
+<div class="container">
+    <header style="background-color: rgba(255,0,0,0)">
+        <div class="top-contacts">
+            <div class="media-links">
+                {% for link in contacts.social_media_links.all %}
+                    {% if link.show_in_header %}
+                        <a href="{{ link.link }}"><img src="{% if link.icon %}{{ link.icon.url }}{% endif %}"
+                                                       alt="{{ link.platform }}"></a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="contacts ">
+                {% for email in contacts.emails.all %}
+                    {% if email.show_in_header %}
+                        <p>{% if email.link %}
+                            <a href="{{ email.link }}" style="color: #fff">{{ email.title }}</a>{% else %}
+                            {{ email.title }}{% endif %}</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <nav class="navbar">
+            <div class="navbar-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar-menu">
+                <li>
+                    <div class="media-links2">
+                        {% for link in contacts.social_media_links.all %}
+                            <a href="{{ link.link }}"><img src="{% if link.icon %}{{ link.icon.url }}{% endif %}"
+                                                           alt="{{ link.platform }}"></a>
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                {% for link in header.links.all %}
+                    <li><a href="{{ link.link }}" style="color: {{ link.text_color }}">{{ link.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
+</div>

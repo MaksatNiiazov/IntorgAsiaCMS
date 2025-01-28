@@ -1,0 +1,7 @@
+    {% for button in buttons %}
+        <a href="{{ button.url }}" class="smooth-scroll">
+            <button style="background-color: {{ button.background_color }}; color: {{ button.text_color }}">{{ button.text }}</button>
+        </a>
+    {% empty %}
+        <div style="padding: 25px 0;"> </div>
+    {% endfor %}

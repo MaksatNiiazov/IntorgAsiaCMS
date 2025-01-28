@@ -1,0 +1,17 @@
+<section id="{{ block.link }}" class="about-us" style="background-color: {{ block.keypoints_block.background_color }}; color: {{ block.keypoints_block.text_color }}">
+    <div class="container">
+        <div class="about-content">
+            <h2>{{ block.keypoints_block.title }}</h2>
+            <div class="services-flex">
+                {% for point in block.keypoints_block.points.all %}
+                    <div class="services-item"><img src="{% if point.icon %}{{ point.icon.url }}{% endif %}" alt="">
+                        <p>{{ point.text }}</p></div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+    {% include 'includes/button.html' with buttons=block.buttons.all %}
+
+</section>

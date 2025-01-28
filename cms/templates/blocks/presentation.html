@@ -1,0 +1,12 @@
+<section id="#{{ block.link }}" class="" style="background-color:{{ block.background_color }}{% if block.background_image %}; background-image: url({{ block.background_image.url }}){% endif %}">
+    <div class="container">
+        <div class="logo">
+            <img src="static/imgs/icons/logo.png" alt="">
+        </div>
+        <div class="title">
+            <h1>{{ block.presentation_block.title }}</h1>
+            <p>{{ block.presentation_block.subtitle }}</p>
+            {% include 'includes/button.html' with buttons=block.buttons.all %}
+        </div>
+    </div>
+</section>

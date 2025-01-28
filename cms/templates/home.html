@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ meta_data.description }}">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="{{ meta_data.keywords }}">
+    <meta name="image" content="
+            
+            
+            
+            {% if meta_data.meta_image %}{{ meta_data.meta_image.url }}{% else %}{% static '/imgs/favicon.png' %}{% endif %}">
+    <meta name="yandex-verification" content="9f332c0f5a48647b"/>
+
+    <link rel="icon" href="
+            {% if meta_data.favicon %}{{ meta_data.favicon.url }}{% else %}{% static '/imgs/favicon.png' %}{% endif %}"
+          type="image/x-icon">
+    <link rel="stylesheet" href="{% static '/css/null.css' %}">
+    <link rel="stylesheet" href="{% static '/css/swiper.css' %}">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body.loaded {
+            background-image: url('{% if meta_data.background_image %}{{ meta_data.background_image.url }}{% else %}{% static '/imgs/background.jpg' %}{% endif %}');
+            opacity: 1;
+        }
+    </style>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(93930665, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/93930665" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+    <title>
+        {% if meta_data.meta_title %}
+            {{ meta_data.meta_title }}
+        {% else %}
+            Импорт одежды из Киргизии - удобно, доступно, надёжно! - ИнторгАзия
+        {% endif %}
+    </title>
+</head>
+<body>
+<div class="background">
+    {% include 'includes/header.html' with header=header contacts=contacts %}
+
+    {% for block in blocks %}
+        {% if block.get_block_type == 'presentation' %}
+            {% include 'blocks/presentation.html' with block=block %}
+        {% elif block.get_block_type == 'slider' %}
+            {% include 'blocks/slider.html' with block=block %}
+        {% elif block.get_block_type == 'keypoints' %}
+            {% include 'blocks/keypoints.html' with block=block %}
+        {% elif block.get_block_type == 'image' %}
+            {% include 'blocks/image.html' with block=block %}
+        {% elif block.get_block_type == 'youtube' %}
+            {% include 'blocks/youtube.html' with block=block %}
+        {% endif %}
+    {% endfor %}
+    {% include 'includes/footer.html' with contacts=contacts %}
+</div>
+<div id="anchor"><img src="{% static '/imgs/icons/icons850.png' %}" alt="" style="filter: invert(1);"></div>
+
+{% include 'includes/popup.html' with contacts=contacts %}
+<script src="static/js/swiper.js"></script>
+<script src="static/js/script.js"></script>
+</body>
+</html>

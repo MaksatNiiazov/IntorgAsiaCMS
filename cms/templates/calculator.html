@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+          content="Проведение фулфилмента в Бишкеке с использованием Честного знака. Калькулятор стоимости и услуги онлайн. ИнторгАзия фулфилмент для маркетплейсов в Бишкеке и Кыргызстане.">
+    <meta name="keywords"
+          content="фулфилмент Бишкек, Честный знак Бишкек, фулфилмент в Бишкеке, Честный знак в Бишкеке, Текшер, фулфилмент Кыргызстан, фулфилмент в Кыргызстане, фулфилмент рассчитать стоимость, Win win фулфилмент, фулфилмент калькулятор, фулфилмент, фулфилмент рассчитать, онлайн калькулятор фулфилмент, Fox Box фулфилмент, фулфилмент Бишкек Вайлдберриз, фулфилмент для маркетплейсов Бишкек, фулфилмент дордой, Win win фулфилмент Бишкек, фулфилмент Вайлдберриз, Бишкек опт">
+    <meta name="yandex-verification" content="9f332c0f5a48647b"/>
+    <link rel="icon" href="/static/imgs/favicon.png" type="image/x-icon">
+    <title>Калькулятор услуг</title>
+    <link rel="stylesheet" href="/static/css/null.css">
+    <link rel="stylesheet" href="/static/css/calculator.css">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) {
+                if (document.scripts[j].src === r) {
+                    return;
+                }
+            }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(93930665, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/93930665" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</head>
+<body>
+<div class="container">
+    <div><a href="/"><img src="/static/imgs/icons/logo.png" alt=""></a></div>
+    <h1>Калькулятор услуг фулфилмента</h1>
+    <div id="services">
+        {% for category in categories %}
+            <h2>{{ category.name }}</h2>
+            {% for service in category.services.all %}
+                <div class="service" {% if service.main %}id='main'{% endif %}>
+                            <div class="service-item">
+ 
+                    <div class="service-name">{{ service.name }}</div>
+                    <div class="service-price">{{ service.price }} руб</div>
+                            </div>
+                    <div class="service-item">
+                        <div class="service-input">
+                            <button class="decrement">-</button>
+                            <input type="number" value="0" min="0">
+                            <button class="increment">+</button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+</div>
+<div class="total">
+    <p id="total"></p>
+    <p id="count"></p>
+    <p id="average"></p>
+</div>
+    {% include 'includes/footer.html' with contacts=contacts %}
+<script src="/static/js/calcolator.js"></script>
+</body>
+</html>

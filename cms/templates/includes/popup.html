@@ -1,0 +1,21 @@
+{% load static %}
+<div id="open-btn"><img src="{% static '/imgs/icons/chat.png' %}" alt="" style="filter: invert(1);"></div>
+<div id="popup">
+    {% for popup in contacts.popups.all %}
+          <div class="pop-flex">
+        <div>
+            <a href="{{ popup.phone_link }}" target="_blank"><img class="icon" src="{% static '/imgs/icons/contactus.png' %}"
+                                                             alt="Icon 3"></a>
+        </div>
+        <div>
+            <a href="{{ popup.whatsapp_link }}" target="_blank"><img class="icon" src="{% static '/imgs/icons/whatsapp.png' %}"
+                                                                      alt="Icon 1"></a>
+        </div>
+        <div>{{ popup.title}}</div>
+    </div>
+    <hr>
+    {% endfor %}
+    
+  
+    
+</div>

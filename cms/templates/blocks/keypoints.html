@@ -4,7 +4,7 @@
             <h2>{{ block.keypoints_block.title }}</h2>
             <div class="services-flex">
                 {% for point in block.keypoints_block.points.all %}
-                    <div class="services-item"><img src="{% if point.icon %}{{ point.icon.url }}{% endif %}" alt="">
+                    <div class="services-item"><img src="{% if point.icon %}{{ point.icon.url }}{% endif %}" alt="" style="{% if point.invert_icon_color %}filter: invert(0.9);{% endif %}">
                         <p>{{ point.text }}</p></div>
                 {% endfor %}
 

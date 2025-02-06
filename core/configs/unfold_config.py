@@ -19,6 +19,24 @@ UNFOLD = {
                 ],
             },
             {
+                "title": _("Настройки сайта"),
+                "separator": True,
+                "collapsible": True,
+                "items": [
+                    {
+                        "title": _("Шапка"),
+                        "icon": "table_chart",
+                        "link": reverse_lazy("admin:cms_headersettingsmodel_changelist"),
+                    },
+                    {
+                        "title": _("Мета настройки"),
+                        "icon": "psychology",
+                        "link": reverse_lazy("admin:cms_metadata_changelist"),
+                    },
+                ],
+            },
+
+            {
                 "title": _("Контентные блоки"),
                 "separator": True,
                 "collapsible": True,

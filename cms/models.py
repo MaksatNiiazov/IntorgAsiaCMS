@@ -8,15 +8,24 @@ from cms.mixins import SingletonModelMixin
 class MetaData(SingletonModelMixin, models.Model):
     meta_title = models.CharField(max_length=255, verbose_name="Мета заголовок", blank=True, null=True)
     meta_description = models.TextField(verbose_name="Мета описание", blank=True, null=True)
-    meta_keywords = models.CharField(max_length=255, verbose_name="Мета ключевые слова", blank=True, null=True)
+    meta_keywords = models.TextField(verbose_name="Мета ключевые слова", blank=True, null=True)
     meta_image = models.ImageField(upload_to='meta_images/', verbose_name="Мета изображение", blank=True, null=True)
     background_image = models.ImageField(upload_to='background_images/', verbose_name="Фоновое изображение", blank=True,
                                          null=True)
     favicon = models.ImageField(upload_to='favicon_images/', verbose_name="Favicon", blank=True, null=True)
+    currency = models.CharField(max_length=10, verbose_name="Валюта в калькуляторе", blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Мета-данные"
+        verbose_name_plural = "Мета-данные"
 
 
 class HeaderSettingsModel(SingletonModelMixin, models.Model):
     background_color = ColorField(verbose_name="Цвет фона", blank=True, null=True, format="hexa")
+
+    class Meta:
+        verbose_name = "Настройки шапки"
+        verbose_name_plural = "Настройки шапки"
 
 
 class HeaderLinkModel(models.Model):
@@ -63,6 +72,7 @@ class KeyPointsBlockModel(BaseBlockModel):
 class KeyPointModel(models.Model):
     block = models.ForeignKey(KeyPointsBlockModel, on_delete=models.CASCADE, verbose_name="Блок", related_name="points")
     icon = models.ImageField(upload_to='keypoints_icons/', verbose_name="Иконка", blank=True, null=True)
+    invert_icon_color = models.BooleanField(default=False, verbose_name="Инвертировать цвет иконки")
     text = models.TextField(verbose_name="Текст", blank=True, null=True)
 
     def __str__(self):
@@ -237,6 +247,7 @@ class PhoneModel(models.Model):
         verbose_name="Контакты"
     )
     title = models.CharField(max_length=255, verbose_name="Название")
+    phone = models.CharField(max_length=255, verbose_name="Номер")
     link = models.CharField(max_length=255, verbose_name="Ссылка", blank=True, null=True)
 
     class Meta:
@@ -308,7 +319,8 @@ class ServiceCategory(models.Model):
 
 
 class Service(models.Model):
-    category = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE, related_name="services", verbose_name="Категория")
+    category = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE, related_name="services",
+                                 verbose_name="Категория")
     name = models.CharField(max_length=255, verbose_name="Название услуги")
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Цена за единицу")
     main = models.BooleanField(default=False, verbose_name="Основная услуга")

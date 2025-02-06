@@ -23,9 +23,11 @@ def home_view(request):
 def calculator_view(request):
     categories = ServiceCategory.objects.prefetch_related('services').all()
     contacts = Contacts.objects.first()
+    meta_data = MetaData.objects.first()
     context = {
         'categories': categories,
-        'contacts': contacts
+        'contacts': contacts,
+        'meta_data': meta_data
     }
 
     return render(request, 'calculator.html', context)

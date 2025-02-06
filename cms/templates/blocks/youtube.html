@@ -1,8 +1,8 @@
-<section id="#{{ block.link }}" class="" style="background-color:{{ block.background_color }}{% if block.background_image %}; background-image: url({{ block.background_image.url }}){% endif %}">
+<section id="#{{ block.link }}" class="" style="background-color:{{ block.youtube_block.background_color }}{% if block.youtube_block.background_image %}; background-image: url({{ block.youtube_block.background_image.url }}){% endif %}">
     <div class="container">
 
         <div class="video">
-            <h2 class="title">{{ block.youtube_block.title }}</h2>
+            <h2 class="title" style="padding: 20px 0 0 ">{{ block.youtube_block.title }}</h2>
             <iframe width="{{ block.youtube_block.width }}px" height="{{ block.youtube_block.height }}px" src="{{ block.youtube_block.video_url }}"
                     title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

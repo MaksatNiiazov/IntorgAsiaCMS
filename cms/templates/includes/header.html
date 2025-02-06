@@ -4,7 +4,7 @@
             <div class="media-links">
                 {% for link in contacts.social_media_links.all %}
                     {% if link.show_in_header %}
-                        <a href="{{ link.link }}"><img src="{% if link.icon %}{{ link.icon.url }}{% endif %}"
+                        <a href="{{ link.url }}"><img src="{% if link.icon %}{{ link.icon.url }}{% endif %}"
                                                        alt="{{ link.platform }}"></a>
                     {% endif %}
                 {% endfor %}

@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{{ meta_data.description }}">
     <meta name="robots" content="index, follow">
+
+    <meta name="description" content="{{ meta_data.description }}">
     <meta name="keywords" content="{{ meta_data.keywords }}">
-    <meta name="image" content="
-            
-            
-            
-            {% if meta_data.meta_image %}{{ meta_data.meta_image.url }}{% else %}{% static '/imgs/favicon.png' %}{% endif %}">
+    <meta name="image" content="{% if meta_data.meta_image %}{{ meta_data.meta_image.url }}{% else %}{% static '/imgs/favicon.png' %}{% endif %}">
+    <link rel="icon" href="{% if meta_data.favicon %}{{ meta_data.favicon.url }}{% else %}{% static '/imgs/favicon.png' %}{% endif %}" type="image/x-icon">
+
+    
     <meta name="yandex-verification" content="9f332c0f5a48647b"/>
 
-    <link rel="icon" href="
-            {% if meta_data.favicon %}{{ meta_data.favicon.url }}{% else %}{% static '/imgs/favicon.png' %}{% endif %}"
-          type="image/x-icon">
     <link rel="stylesheet" href="{% static '/css/null.css' %}">
     <link rel="stylesheet" href="{% static '/css/swiper.css' %}">
     <link rel="stylesheet" href="{% static '/css/style.css' %}">

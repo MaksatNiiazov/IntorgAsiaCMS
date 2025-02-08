@@ -1,9 +1,11 @@
-<div style="padding: 10px 0;">
     {% for button in buttons %}
+    <div style="padding: 10px 0;">
+
         <a href="{{ button.url }}" class="smooth-scroll">
             <button style="background-color: {{ button.background_color }}; color: {{ button.text_color }}">{{ button.text }}</button>
         </a>
+    </div>
+
         {% empty %}
         <br>
     {% endfor %}
-</div>

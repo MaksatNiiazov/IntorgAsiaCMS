@@ -1,12 +1,21 @@
-<section id="#{{ block.link }}" class="" style="background-color:{{ block.background_color }}{% if block.background_image %}; background-image: url({{ block.background_image.url }}){% endif %}">
-    <div class="container">
+<section id="{{ block.link }}" class="" style="background-color:{{ block.presentation_block.background_color }}{% if block.presentation_block.background_image %}; background-image: url({{ block.presentation_block.background_image.url }}); background-size: cover{% endif %}">
+    <div class="container" style="color: {{ block.presentation_block.text_color }}">
         <div class="logo">
-            <img src="static/imgs/icons/logo.png" alt="">
+            {% if block.presentation_block.image %}
+                <img src="{{ block.presentation_block.image.url }}" alt="">
+            {% endif %}
         </div>
         <div class="title">
-            <h1>{{ block.presentation_block.title }}</h1>
-            <p>{{ block.presentation_block.subtitle }}</p>
-            {% include 'includes/button.html' with buttons=block.buttons.all %}
+            <h1 style="color: {{ block.presentation_block.text_color }}">{{ block.presentation_block.title }}</h1>
+            <p style="margin-bottom: 40px; color: {{ block.presentation_block.text_color }}">{{ block.presentation_block.subtitle }}</p>
+
         </div>
+
+        <hr style="color: {{ block.presentation_block.text_color }}">
+        <div style="padding: 30px 0 0 0">
+            <p style="margin: 0; text-align: center">{{ block.presentation_block.text }}</p>
+        </div>
+        {% include 'includes/button.html' with buttons=block.buttons.all %}
+
     </div>
 </section>

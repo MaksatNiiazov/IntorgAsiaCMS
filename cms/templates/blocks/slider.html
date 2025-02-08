@@ -1,13 +1,23 @@
-<section id="#{{ block.link }}" class="" style="padding: 25px 0; background-color:{{ block.background_color }}{% if block.background_image %}; background-image: url({{ block.background_image.url }}){% endif %}">
-    <div class="wrapper" data-carousel="{{ block.slider_block.id }}">
-        <i class="arrow left fa-solid fa-angle-left" style="color: #333;"></i>
-        <ul class="carousel">
-            {% for slide in block.slider_block.slides.all %}
-            	<li class="card">
-                <div class="img"><img src="{% if slide.image %}{{ slide.image.url }}{% endif %}" alt="img" draggable="True8/8"></div>
-            </li>
-            {% endfor %}
-        </ul>
-        <i class="arrow right fa-solid fa-angle-right" style="color: #333;"></i>
+<section id="{{ block.link }}" class="" style="background-color:{{ block.slider_block.background_color }}{% if block.slider_block.background_image %}; background-image: url({{ block.slider_block.background_image.url }}){% endif %}">
+    <div class="container">
+            <div class="title">
+            <h1 style="color: {{ block.slider_block.text_color }}; padding: 25px 0 0 ">{{ block.slider_block.title }}</h1>
+                <br>
+
+            </div>
+        <div class="wrapper" data-carousel="{{ block.slider_block.id }}">
+            <i class="arrow left fa-solid fa-angle-left" style="color: #333;"></i>
+            <ul class="carousel">
+                {% for slide in block.slider_block.slides.all %}
+                    <li class="card">
+                        <div class="img"><img src="{% if slide.image %}{{ slide.image.url }}{% endif %}" alt="img"
+                                              draggable="True8/8"></div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <i class="arrow right fa-solid fa-angle-right" style="color: #333;"></i>
+        </div>
     </div>
+{% include 'includes/button.html' with buttons=block.buttons.all %}
+
 </section>

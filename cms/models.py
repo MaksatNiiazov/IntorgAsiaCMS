@@ -57,6 +57,7 @@ class BaseBlockModel(models.Model):
 class PresentationBlockModel(BaseBlockModel):
     subtitle = models.CharField(max_length=255, verbose_name="Подзаголовок", blank=True, null=True)
     text = models.TextField(verbose_name="Текст", blank=True, null=True)
+    image = models.ImageField(upload_to='presentation_blocks/', verbose_name="Изображение", blank=True, null=True)
 
     class Meta:
         verbose_name = "Презентация"

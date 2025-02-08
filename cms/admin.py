@@ -107,6 +107,10 @@ class BlockOrderingAdmin(SortableAdminMixin, ModelAdmin):
             return "Изображение"
         elif obj.slider_block:
             return "Слайдер"
+        elif obj.youtube_block:
+            return "Видео"
+        elif obj.image_block:
+            return "Изображение"
         return "Неизвестный"
 
     get_block_type.short_description = "Тип блока"
@@ -120,6 +124,10 @@ class BlockOrderingAdmin(SortableAdminMixin, ModelAdmin):
             return obj.image_block
         elif obj.slider_block:
             return obj.slider_block
+        elif obj.youtube_block:
+            return obj.youtube_block
+        elif obj.image_block:
+            return obj.image_block
         return None
 
     get_linked_block.short_description = "Связанный блок"
@@ -133,6 +141,10 @@ class BlockOrderingAdmin(SortableAdminMixin, ModelAdmin):
             return obj.image_block.title
         elif obj.slider_block:
             return obj.slider_block.title
+        elif obj.youtube_block:
+            return obj.youtube_block.title
+        elif obj.image_block:
+            return obj.image_block.title
         return "Без заголовка"
 
     get_block_title.short_description = "Заголовок блока"

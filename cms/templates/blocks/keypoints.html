@@ -1,7 +1,7 @@
 <section id="{{ block.link }}" class="about-us" style="background-color: {{ block.keypoints_block.background_color }}; color: {{ block.keypoints_block.text_color }}{% if block.keypoints_block.background_image %}; background-image: url({{ block.keypoints_block.background_image.url }}){% endif %}">
     <div class="container" style="padding: 20px 0 0 0 ">
         <div class="about-content">
-            <h2 style="color: {{ block.keypoints_block.text_color }}>{{ block.keypoints_block.title }}</h2>
+            <h2 style="color: {{ block.keypoints_block.text_color }}">{{ block.keypoints_block.title }}</h2>
             <div class="services-flex">
                 {% for point in block.keypoints_block.points.all %}
                     <div class="services-item"><img src="{% if point.icon %}{{ point.icon.url }}{% endif %}" alt="" style="{% if point.invert_icon_color %}filter: invert(0.9);{% endif %}">
@@ -12,6 +12,7 @@
             </div>
         </div>
     </div>
+
     {% include 'includes/button.html' with buttons=block.buttons.all %}
 
 </section>

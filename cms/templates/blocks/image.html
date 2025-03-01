@@ -1,7 +1,7 @@
 <section id="{{ block.link }}" class="" style="background-color:{{ block.image_block.background_color }}{% if block.image_block.background_image %}; background-image: url({{ block.image_block.background_image.url }}){% endif %}">
     <div class="container">
     {% if block.image_block.title %}
-        <h2 class="title" style="color: {{ block.image_block.text_color }}">{{ block.image_block.title }}</h2>
+        {% include 'includes/title.html' with block=block.image_block %}
     {% endif %}
 
         <div class="image-container" style="padding: 25px 0;">

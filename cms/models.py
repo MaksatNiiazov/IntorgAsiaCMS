@@ -43,6 +43,7 @@ class HeaderLinkModel(models.Model):
 class BaseBlockModel(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название")
     title = models.CharField(max_length=255, verbose_name="Заголовок", blank=True, null=True)
+    title_font_size = models.IntegerField(verbose_name="Размер заголовка", blank=True, null=True, default=28)
     background_color = ColorField(verbose_name="Цвет фона", blank=True, null=True, format="hexa")
     background_image = models.ImageField(upload_to='blocks_backgrounds/', verbose_name="Фон", blank=True, null=True)
     text_color = ColorField(verbose_name="Цвет текста", blank=True, null=True, default="#000000")

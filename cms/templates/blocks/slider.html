@@ -1,9 +1,7 @@
 <section id="{{ block.link }}" class="" style="background-color:{{ block.slider_block.background_color }}{% if block.slider_block.background_image %}; background-image: url({{ block.slider_block.background_image.url }}){% endif %}">
     <div class="container">
             <div class="title">
-            <h1 style="color: {{ block.slider_block.text_color }}; padding: 25px 0 0 ">{{ block.slider_block.title }}</h1>
-                <br>
-
+                {% include 'includes/title.html' with block=block.slider_block %}
             </div>
         <div class="wrapper" data-carousel="{{ block.slider_block.id }}">
             <i class="arrow left fa-solid fa-angle-left" style="color: #333;"></i>

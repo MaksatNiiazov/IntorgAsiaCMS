@@ -6,7 +6,7 @@
             {% endif %}
         </div>
         <div class="title">
-            <h1 style="color: {{ block.presentation_block.text_color }}">{{ block.presentation_block.title }}</h1>
+            {% include 'includes/title.html' with block=block.presentation_block %}
             <p style="margin-bottom: 40px; color: {{ block.presentation_block.text_color }}">{{ block.presentation_block.subtitle }}</p>
 
         </div>

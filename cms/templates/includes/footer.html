@@ -6,21 +6,26 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <div class="topic">Адреса</div>
                     {% for address in contacts.addresses.all %}
-                        <div class="text-one">{% if address.link %}<a href="{{ address.link }}">{{ address.address }}</a>{% else %}{{ address.address }}{% endif %}</div>
+                        <div class="text-one">{% if address.link %}
+                            <a href="{{ address.link }}">{{ address.address }}</a>{% else %}
+                            {{ address.address }}{% endif %}</div>
                     {% endfor %}
                 </div>
                 <div class="phone details">
                     <i class="fas fa-phone-alt"></i>
                     <div class="topic">Телефоны</div>
                     {% for phone in contacts.phones.all %}
-                    	<div class="text-one">{{ phone.title }} <a href="{% if phone.link %}{{ phone.link }}{% endif %}">{{ phone.phone }}</a></div>
+                        <div class="text-one">{{ phone.title }}
+                            <span class="mobile-break"><br></span>
+                            <a href="{% if phone.link %}{{ phone.link }}{% endif %}">{{ phone.phone }}</a></div>
                     {% endfor %}
                 </div>
                 <div class="email details">
                     <i class="fas fa-envelope"></i>
                     <div class="topic">Email</div>
                     {% for email in contacts.emails.all %}
-                    	<div class="text-one"><a href="{% if email.link %}{{ email.link }}{% endif %}">{{ email.title }}</a></div>
+                        <div class="text-one"><a
+                                href="{% if email.link %}{{ email.link }}{% endif %}">{{ email.title }}</a></div>
                     {% endfor %}
                 </div>
             </div>

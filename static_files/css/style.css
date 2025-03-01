@@ -993,3 +993,13 @@ margin-right: 10px;
 .text-one a{
   color: white;
 }
+
+.mobile-break {
+    display: none; /* По умолчанию скрыто */
+}
+
+@media (max-width: 768px) { /* Показываем только на экранах < 768px */
+    .mobile-break {
+        display: inline;
+    }
+}

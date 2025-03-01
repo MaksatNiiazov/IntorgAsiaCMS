@@ -177,7 +177,7 @@ class PopupInline(TabularInline):
 
 @admin.register(Contacts)
 class ContactsAdmin(ModelAdmin):
-    inlines = [SocialMediaLinkInline, EmailInline, PhoneInline, AddressInline]
+    inlines = [SocialMediaLinkInline, EmailInline, PhoneInline, AddressInline, PopupInline]
 
 
 class ServiceInline(TabularInline):

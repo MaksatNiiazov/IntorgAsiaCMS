@@ -306,6 +306,13 @@ class PopupModel(models.Model):
     phone_link = models.CharField(max_length=255, verbose_name="Ссылка на телефон", blank=True, null=True)
     whatsapp_link = models.CharField(max_length=255, verbose_name="Ссылка на WhatsApp", blank=True, null=True)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Попап"
+        verbose_name_plural = "Попап"
+
 
 class ServiceCategory(models.Model):
     name = models.CharField(max_length=255, verbose_name="Название категории")
